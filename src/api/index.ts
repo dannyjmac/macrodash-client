@@ -1,1 +1,1 @@
-export { default as AnApi } from "./anApi";
+export { default as API } from "./api";

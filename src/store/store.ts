@@ -1,24 +1,20 @@
 import { makeAutoObservable } from "mobx";
-import { AnApi } from "../api";
-import { SpecificStore } from "./stores";
+import { API } from "../api";
 
 export class Store {
-  // Child Stores
-  authStore = new SpecificStore(this);
-
   // UI Logic state - all the state for all user interaction
   // discover = new DiscoverView(this);
   api: {
-    anApi: AnApi;
+    api: API;
   };
 
-  constructor(anApi: AnApi) {
+  constructor(api: API) {
     makeAutoObservable(this, {}, { deep: false, autoBind: true });
-    this.api = { anApi };
+    this.api = { api };
   }
 }
 
 export const createStore = () => {
-  const anApi = new AnApi();
-  return new Store(anApi);
+  const api = new API();
+  return new Store(api);
 };

@@ -1,7 +1,6 @@
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { observer } from "mobx-react-lite";
 
 import { Home } from "./components/Home";

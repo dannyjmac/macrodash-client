@@ -1,3 +1,3 @@
-export default class AnApi {
+export default class API {
   helloWorld = async () => {};
 }
