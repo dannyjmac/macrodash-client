@@ -1,5 +1,5 @@
-import "./App.css";
-
+import { useEffect } from "react";
+import { useStore } from "./store";
 import { Routes, Route } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 
@@ -8,6 +8,14 @@ import { Navigation } from "./components/Navigation";
 import { Page2 } from "./components/Page2";
 
 const App = observer(() => {
+  const store = useStore();
+
+  useEffect(() => {
+    if (!store.yields) {
+      store.fetchYields();
+    }
+  }, []);
+
   return (
     <div className="App">
       <>
