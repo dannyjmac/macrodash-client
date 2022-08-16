@@ -7,8 +7,10 @@ import {
   AnimatedLineSeries,
   Tooltip,
   XYChart,
+  AnimatedGlyphSeries,
 } from "@visx/xychart";
 import { Glyph } from "@visx/glyph";
+import { scaleTime, scaleLinear } from "@visx/scale";
 
 const Container = styled.div`
   max-width: 800px;
@@ -181,21 +183,21 @@ const LineChart = () => {
           data={data1}
           {...accessors}
         />
+        <AnimatedGlyphSeries
+          renderGlyph={() => (
+            <div
+              style={{ height: 300, width: 300, backgroundColor: "pink" }}
+            ></div>
+          )}
+        />
         <Tooltip
           snapTooltipToDatumX
           snapTooltipToDatumY
           showSeriesGlyphs
           glyphStyle={{
             fill: "#008561",
-            height: 30,
-            width: 30,
-            strokeWidth: 0,
+            strokeWidth: 1,
           }}
-          renderGlyph={({ test }: any) => (
-            <div style={{ backgroundColor: "red", width: 10, height: 10 }}>
-              test
-            </div>
-          )}
           renderTooltip={({ tooltipData }) => {
             return (
               <TooltipContainer>
@@ -225,3 +227,7 @@ const LineChart = () => {
     </ChartContainer>
   );
 };
+
+// const CustomGlyph = () => {
+//   <Glyph left={left} top={top} />;
+// };s
