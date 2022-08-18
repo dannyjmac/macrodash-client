@@ -5,7 +5,6 @@ import { observer } from "mobx-react-lite";
 
 import { Home } from "./components/Home";
 import { Navigation } from "./components/Navigation";
-import { Page2 } from "./components/Page2";
 
 const App = observer(() => {
   const store = useStore();
@@ -22,7 +21,6 @@ const App = observer(() => {
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/page-2" element={<Page2 />} />
         </Routes>
       </>
     </div>

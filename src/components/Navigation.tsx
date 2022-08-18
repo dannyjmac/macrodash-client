@@ -11,14 +11,7 @@ export const Navigation = () => {
         justifyContent: "center",
       }}
     >
-      <Link to="/">
-        <div style={{ cursor: "pointer", margin: 20 }}>
-          <div style={{ cursor: "pointer", margin: 20 }}>PAGE 1</div>
-        </div>
-      </Link>
-      <Link to="/page-2">
-        <div style={{ cursor: "pointer", margin: 20 }}>PAGE 2</div>
-      </Link>
+      <Link to="/"></Link>
     </div>
   );
 };
