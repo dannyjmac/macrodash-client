@@ -10,6 +10,7 @@ import { AxisLeft, AxisBottom } from "@visx/axis";
 import { GridRows, GridColumns } from "@visx/grid";
 import { Text } from "@visx/text";
 import { useStore } from "../store";
+import moment from "moment";
 
 const Svg = styled.svg`
   text {
@@ -21,7 +22,7 @@ export const background = "#f3f3f3";
 
 const width = 800;
 const height = 400;
-const margin = { top: 70, right: 30, bottom: 20, left: 40 };
+const margin = { top: 70, right: 30, bottom: 50, left: 40 };
 const xMax = width - margin.left - margin.right;
 const yMax = height - margin.top - margin.bottom;
 
@@ -136,9 +137,27 @@ export const YieldCurve = observer(() => {
         >
           US Treasuries Yield Curve
         </Text>
+
+        <Text
+          x={400}
+          y={370}
+          width={800}
+          style={{ fontWeight: "bold", fontSize: 22 }}
+          verticalAnchor="start"
+          textAnchor="middle"
+        >
+          {moment(store.yields[currentIndex].date).format("DD-MMM-YYYY")}
+        </Text>
       </Svg>
       <div onClick={() => setCurrentIndex(currentIndex - 1)}>prev</div>
-      <div onClick={() => setCurrentIndex(currentIndex + 1)}>next</div>
+      <div
+        onClick={() =>
+          currentIndex < store.yields.length - 1 &&
+          setCurrentIndex(currentIndex + 1)
+        }
+      >
+        next
+      </div>
     </>
   );
 });

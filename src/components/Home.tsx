@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Logo } from "./Logo";
 import { YieldCurve } from "./YieldCurve";
 
 const Container = styled.div`
@@ -9,6 +10,7 @@ const Container = styled.div`
 export const Home = () => {
   return (
     <Container>
+      <Logo />
       <YieldCurve />
     </Container>
   );

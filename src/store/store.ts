@@ -30,7 +30,7 @@ export class Store {
 
       if (!response?.data) return;
 
-      this.yields = response.data;
+      this.yields = response.data.data;
     } catch (err) {
       console.log({ err });
     }
